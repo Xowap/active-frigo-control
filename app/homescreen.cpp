@@ -8,7 +8,8 @@
 
 HomeScreen::HomeScreen(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::HomeScreen)
+    ui(new Ui::HomeScreen),
+    tunnel(new FrigoTunnel("control", this))
 {
     ui->setupUi(this);
 }
@@ -20,20 +21,13 @@ HomeScreen::~HomeScreen()
 
 void HomeScreen::on_pushButton_clicked()
 {
-    QUdpSocket socket;
-    QByteArray data("{\"type\":\"play-sound\",\"name\":\"ahaha\"}");
-    QHostAddress target("225.42.42.42");
-    socket.writeDatagram(data, target, 42000);
+    QJsonObject content;
+    content["type"] = "play-sound";
+    content["name"] = "ahaha";
 
-//    foreach (QHostAddress address, QNetworkInterface::allAddresses()) {
-//        QUdpSocket socket;
+    FrigoMessage message(content);
+    message.to("*");
 
-//        qDebug() << address;
-
-//        if (address.protocol() == QAbstractSocket::IPv6Protocol
-//                && address.isInSubnet(QHostAddress::parseSubnet("fe80::/64"))) {
-//            socket.bind(address, 0);
-//            socket.writeDatagram(data, target, 42000);
-//        }
-//    }
+    FrigoPacket packet(&message);
+    tunnel->send(&packet);
 }

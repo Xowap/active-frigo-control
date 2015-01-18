@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "frigotunnel.h"
+
 namespace Ui {
 class HomeScreen;
 }
@@ -20,6 +22,7 @@ private slots:
 
 private:
     Ui::HomeScreen *ui;
+    FrigoTunnel *tunnel;
 };
 
 #endif // HOMESCREEN_H
