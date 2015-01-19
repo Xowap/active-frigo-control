@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "frigotunnel.h"
+#include "autobalancedlayout.h"
 
 namespace Ui {
 class HomeScreen;
@@ -17,12 +18,9 @@ public:
     explicit HomeScreen(QWidget *parent = 0);
     ~HomeScreen();
 
-private slots:
-    void on_pushButton_clicked();
-
 private:
-    Ui::HomeScreen *ui;
     FrigoTunnel *tunnel;
+    AutoBalancedLayout *layout;
 };
 
 #endif // HOMESCREEN_H

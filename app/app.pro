@@ -14,11 +14,13 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        homescreen.cpp
+        homescreen.cpp \
+    autobalancedlayout.cpp
 
-HEADERS  += homescreen.h
+HEADERS  += homescreen.h \
+    autobalancedlayout.h
 
-FORMS    += homescreen.ui
+FORMS    +=
 
 CONFIG += mobility
 MOBILITY = 
