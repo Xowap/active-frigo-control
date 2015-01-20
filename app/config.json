@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Ahaha",
+		"targets": [
+			{
+				"name": "ahaha",
+				"hosts": ["frigo1"],
+				"volume": 100
+			},
+			{
+				"name": "nelson",
+				"hosts": ["frigo2"],
+				"volume": 100
+			}
+		]
+	},
+	{
+		"name": "Fils de Pute",
+		"targets": [
+			{
+				"name": "fdp",
+				"hosts": ["*"],
+				"volume": 100
+			}
+		]
+	}
+]

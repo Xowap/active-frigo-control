@@ -15,10 +15,16 @@ CONFIG += c++11
 
 SOURCES += main.cpp\
         homescreen.cpp \
-    autobalancedlayout.cpp
+    autobalancedlayout.cpp \
+    config.cpp \
+    soundset.cpp \
+    soundtarget.cpp
 
 HEADERS  += homescreen.h \
-    autobalancedlayout.h
+    autobalancedlayout.h \
+    config.h \
+    soundset.h \
+    soundtarget.h
 
 FORMS    +=
 
@@ -28,3 +34,6 @@ MOBILITY =
 INCLUDEPATH += $$PWD/../frigotunnel/lib
 
 LIBS += -L../frigotunnel/lib -lfrigotunnel
+
+RESOURCES += \
+    resources.qrc
