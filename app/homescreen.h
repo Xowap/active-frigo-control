@@ -3,10 +3,6 @@
 
 #include <QWidget>
 
-#include "frigotunnel.h"
-#include "autobalancedlayout.h"
-#include "soundset.h"
-
 namespace Ui {
 class HomeScreen;
 }
@@ -19,12 +15,8 @@ public:
     explicit HomeScreen(QWidget *parent = 0);
     ~HomeScreen();
 
-private slots:
-    void playSet(SoundSet set);
-
 private:
-    FrigoTunnel *tunnel;
-    AutoBalancedLayout *layout;
+    Ui::HomeScreen *ui;
 };
 
 #endif // HOMESCREEN_H

@@ -1,27 +1,82 @@
 [
-	{
-		"name": "Ahaha",
-		"targets": [
-			{
-				"name": "ahaha",
-				"hosts": ["frigo1"],
-				"volume": 100
-			},
-			{
-				"name": "nelson",
-				"hosts": ["frigo2"],
-				"volume": 100
-			}
-		]
-	},
-	{
-		"name": "Fils de Pute",
-		"targets": [
-			{
-				"name": "fdp",
-				"hosts": ["*"],
-				"volume": 100
-			}
-		]
-	}
+{
+    "name": "Silence",
+    "targets": [
+        {
+            "name": "silence",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Écoutez",
+    "targets": [
+        {
+            "name": "ecoutez",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Valses",
+    "targets": [
+        {
+            "name": "valses",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Trompette",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Bottes",
+    "targets": [
+        {
+            "name": "bottes",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Affrontement",
+    "targets": [
+        {
+            "name": "affrontement",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Sommeil",
+    "targets": [
+        {
+            "name": "sommeil",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Course Poursuite",
+    "targets": [
+        {
+            "name": "course_poursuite",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+}
 ]

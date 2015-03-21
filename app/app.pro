@@ -14,19 +14,23 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        homescreen.cpp \
     autobalancedlayout.cpp \
     config.cpp \
     soundset.cpp \
-    soundtarget.cpp
+    soundtarget.cpp \
+    soundbuttons.cpp \
+    homescreen.cpp
 
-HEADERS  += homescreen.h \
+HEADERS  += \
     autobalancedlayout.h \
     config.h \
     soundset.h \
-    soundtarget.h
+    soundtarget.h \
+    soundbuttons.h \
+    homescreen.h
 
-FORMS    +=
+FORMS    += \
+    homescreen.ui
 
 CONFIG += mobility
 MOBILITY = 
