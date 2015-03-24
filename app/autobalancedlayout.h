@@ -4,6 +4,8 @@
 #include <QtWidgets>
 #include <QVector>
 
+#include "layouthelper.h"
+
 class AutoBalancedLayout : public QLayout
 {
     Q_OBJECT
@@ -24,8 +26,7 @@ public:
 
 private:
     QVector<QLayoutItem*> items;
-
-    static int calcColumns(int n, double aspect, const QRect &r);
+    LayoutHelper helper;
 };
 
 #endif // AUTOBALANCEDLAYOUT_H

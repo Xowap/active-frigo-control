@@ -1,6 +1,7 @@
 #include "autobalancedlayout.h"
 
 #include <cmath>
+#include <QPoint>
 
 const double AutoBalancedLayout::ITEM_ASPECT = 4.0 / 3.0 ;
 const int AutoBalancedLayout::MINIMUM_CELL_WIDTH = 50;
@@ -43,8 +44,16 @@ QLayoutItem *AutoBalancedLayout::takeAt(int index)
 
 void AutoBalancedLayout::setGeometry(const QRect &rect)
 {
-    int columns = calcColumns(count(), ITEM_ASPECT, rect), rows = ceil(count() / (double) columns);
-    double width = (double) rect.width() / columns, height = (double) rect.height() / rows;
+    helper.setCount(items.size());
+    helper.setWidth(rect.width() - 1);
+    helper.setHeight(rect.height() - 1);
+    helper.setSpacing(spacing());
+
+    int columns = helper.chooseCols();
+    int rows = ceil((double) items.size() / (double) columns);
+    QSizeF size = helper.sizeForCols(columns);
+
+    qDebug() << "set size" << size << columns << rows;
 
     for (int x = 0; x < columns; x += 1) {
         for (int y = 0; y < rows; y += 1) {
@@ -52,18 +61,10 @@ void AutoBalancedLayout::setGeometry(const QRect &rect)
 
             if (i < count()) {
                 items[i]->setGeometry(QRect(
-                    rect.x() + x * width,
-                    rect.y() + y * height,
-                    width,
-                    height
+                    QPoint((size.width() + spacing()) * x, (size.height() + spacing()) * y),
+                    QPoint(size.width() * (x + 1) + spacing() * x, size.height() * (y + 1) + spacing() * y)
                 ));
             }
         }
     }
-}
-
-int AutoBalancedLayout::calcColumns(int n, double aspect, const QRect &r)
-{
-    double beta = aspect * (double) r.width() / (double) r.height();
-    return ceil(sqrt((double) n / beta));
 }

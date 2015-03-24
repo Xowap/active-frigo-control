@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     soundset.cpp \
     soundtarget.cpp \
     soundbuttons.cpp \
-    homescreen.cpp
+    homescreen.cpp \
+    layouthelper.cpp
 
 HEADERS  += \
     autobalancedlayout.h \
@@ -27,7 +28,8 @@ HEADERS  += \
     soundset.h \
     soundtarget.h \
     soundbuttons.h \
-    homescreen.h
+    homescreen.h \
+    layouthelper.h
 
 FORMS    += \
     homescreen.ui
