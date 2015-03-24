@@ -43,7 +43,7 @@ void SoundButtons::playSet(SoundSet set)
         QJsonObject content;
         content["type"] = "play-sound";
         content["name"] = target.getName();
-        content["volume"] = (target.getVolume() * volume) / 100;
+        content["volume"] = target.getVolume();
 
         qDebug() << "playing sound" << content;
 
@@ -59,4 +59,19 @@ void SoundButtons::playSet(SoundSet set)
 void SoundButtons::setVolume(int volume)
 {
     this->volume = volume;
+
+    QJsonObject content;
+    content["type"] = "set-volume";
+    content["volume"] = volume;
+
+    FrigoMessage *message = new FrigoMessage(content);
+    message->to(QStringList("*"));
+    message->deleteLater();
+
+    FrigoPacket packet;
+    packet.append(message);
+
+    qDebug() << "setting volume" << content;
+
+    tunnel->send(&packet);
 }
