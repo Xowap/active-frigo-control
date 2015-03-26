@@ -2,6 +2,7 @@
 #define SOUNDBUTTONS_H
 
 #include <QWidget>
+#include <QTimer>
 
 #include "frigotunnel.h"
 #include "autobalancedlayout.h"
@@ -18,10 +19,12 @@ public:
 private slots:
     void playSet(SoundSet set);
     void setVolume(int volume);
+    void sendVolume();
 
 private:
     FrigoTunnel *tunnel;
     AutoBalancedLayout *layout;
+    QTimer volumeTimer;
 
     int volume;
 };

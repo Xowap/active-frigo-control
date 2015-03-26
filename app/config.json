@@ -78,5 +78,65 @@
             "volume": 100
         }
     ]
+},
+{
+    "name": "Frigo A",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_a"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Frigo B",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_b"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Frigo C",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_c"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Frigo D",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_d"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Frigo E",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_e"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "Frigo F",
+    "targets": [
+        {
+            "name": "trompette",
+            "hosts": ["frigo_f"],
+            "volume": 100
+        }
+    ]
 }
 ]

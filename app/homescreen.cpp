@@ -6,7 +6,7 @@ HomeScreen::HomeScreen(QWidget *parent) :
     ui(new Ui::HomeScreen)
 {
     ui->setupUi(this);
-    connect(ui->verticalSlider, SIGNAL(valueChanged(int)), ui->soundButtons, SLOT(setVolume(int)));
+    connect(ui->volumeSlider, SIGNAL(valueChanged(int)), ui->soundButtons, SLOT(setVolume(int)));
 }
 
 HomeScreen::~HomeScreen()

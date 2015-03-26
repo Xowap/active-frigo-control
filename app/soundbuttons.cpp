@@ -29,6 +29,10 @@ SoundButtons::SoundButtons(QWidget *parent) :
             playSet(set);
         });
     }
+
+    volumeTimer.setInterval(5000);
+    connect(&volumeTimer, SIGNAL(timeout()), this, SLOT(sendVolume()));
+    volumeTimer.start();
 }
 
 SoundButtons::~SoundButtons()
@@ -59,10 +63,14 @@ void SoundButtons::playSet(SoundSet set)
 void SoundButtons::setVolume(int volume)
 {
     this->volume = volume;
+    sendVolume();
+}
 
+void SoundButtons::sendVolume()
+{
     QJsonObject content;
     content["type"] = "set-volume";
-    content["volume"] = volume;
+    content["volume"] = this->volume;
 
     FrigoMessage *message = new FrigoMessage(content);
     message->to(QStringList("*"));
