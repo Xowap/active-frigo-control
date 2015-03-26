@@ -7,12 +7,13 @@
 #include <QNetworkInterface>
 #include <QByteArray>
 #include <QPushButton>
+#include <QUuid>
 
 #include "autobalancedlayout.h"
 
 SoundButtons::SoundButtons(QWidget *parent) :
     QWidget(parent),
-    tunnel(new FrigoTunnel("control", this)),
+    tunnel(new FrigoTunnel(QUuid::createUuid().toString(), this)),
     layout(new AutoBalancedLayout(this)),
     volume(100)
 {
