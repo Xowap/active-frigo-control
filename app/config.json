@@ -44,7 +44,7 @@
     "targets": [
         {
             "name": "bottes",
-            "hosts": ["*"],
+            "hosts": ["frigo_d", "frigo_e", "frigo_f"],
             "volume": 100
         }
     ]
@@ -80,60 +80,70 @@
     ]
 },
 {
-    "name": "Frigo A",
+    "name": "Final",
     "targets": [
         {
-            "name": "trompette",
+            "name": "final",
+            "hosts": ["*"],
+            "volume": 100
+        }
+    ]
+},
+{
+    "name": "A",
+    "targets": [
+        {
+            "name": "sommeil",
             "hosts": ["frigo_a"],
             "volume": 100
         }
     ]
 },
 {
-    "name": "Frigo B",
+    "name": "B",
     "targets": [
         {
-            "name": "trompette",
+            "name": "sommeil",
             "hosts": ["frigo_b"],
             "volume": 100
         }
     ]
 },
 {
-    "name": "Frigo C",
+    "name": "C",
     "targets": [
         {
-            "name": "trompette",
+            "name": "sommeil",
             "hosts": ["frigo_c"],
             "volume": 100
         }
     ]
 },
 {
-    "name": "Frigo D",
+    "name": "D",
     "targets": [
         {
-            "name": "trompette",
+            "name": "sommeil",
             "hosts": ["frigo_d"],
             "volume": 100
         }
     ]
 },
 {
-    "name": "Frigo E",
+    "name": "E",
     "targets": [
         {
-            "name": "trompette",
+            "name": "sommeil",
             "hosts": ["frigo_e"],
             "volume": 100
         }
     ]
 },
 {
-    "name": "Frigo F",
+    "name": "F",
     "targets": [
         {
-            "name": "trompette",
+            "name": "sommeil",
             "hosts": ["frigo_f"],
             "volume": 100
         }

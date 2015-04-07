@@ -26,7 +26,7 @@ SoundButtons::SoundButtons(QWidget *parent) :
         QPushButton *button = new QPushButton(set.getName(), this);
         button->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
         layout->addWidget(button);
-        connect(button, &QPushButton::pressed, [=]() {
+        connect(button, &QPushButton::clicked, [=]() {
             playSet(set);
         });
     }

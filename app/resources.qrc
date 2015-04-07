@@ -2,4 +2,7 @@
     <qresource prefix="/config">
         <file>config.json</file>
     </qresource>
+    <qresource prefix="/">
+        <file>style.css</file>
+    </qresource>
 </RCC>
