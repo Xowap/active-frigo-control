@@ -8,6 +8,7 @@
 #include <QByteArray>
 #include <QPushButton>
 #include <QUuid>
+#include <QTapAndHoldGesture>
 
 #include "autobalancedlayout.h"
 
@@ -20,15 +21,28 @@ SoundButtons::SoundButtons(QWidget *parent) :
     Config *config = Config::instance();
     config->load(":/config/config.json");
 
+    QTapAndHoldGesture::setTimeout(LONG_PRESS_TIMEOUT);
+
     setLayout(layout);
 
     foreach(SoundSet set, config->getSoundSets()) {
         QPushButton *button = new QPushButton(set.getName(), this);
         button->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
+        button->grabGesture(Qt::TapAndHoldGesture);
+        button->installEventFilter(this);
         layout->addWidget(button);
+
         connect(button, &QPushButton::clicked, [=]() {
-            playSet(set);
+            if (buttonStatus[button]) {
+                playSet(set);
+            }
         });
+
+        connect(button, &QPushButton::pressed, [=]() {
+            disableButton(button);
+        });
+
+        disableButton(button);
     }
 
     volumeTimer.setInterval(5000);
@@ -38,6 +52,22 @@ SoundButtons::SoundButtons(QWidget *parent) :
 
 SoundButtons::~SoundButtons()
 {
+}
+
+bool SoundButtons::eventFilter(QObject *target, QEvent *event)
+{
+    if (event->type() == QEvent::Gesture) {
+        QGestureEvent *gestureEvent = static_cast<QGestureEvent *>(event);
+        QPushButton *button = dynamic_cast<QPushButton *>(target);
+
+        if (gestureEvent->gesture(Qt::TapAndHoldGesture)
+                && button
+                && buttonStatus.contains(button)) {
+            enableButton(button);
+        }
+    }
+
+    return false;
 }
 
 void SoundButtons::playSet(SoundSet set)
@@ -83,4 +113,16 @@ void SoundButtons::sendVolume()
     qDebug() << "setting volume" << content;
 
     tunnel->send(&packet);
+}
+
+void SoundButtons::enableButton(QPushButton *button)
+{
+    button->setStyleSheet("QPushButton:pressed { background-color: red; }");
+    buttonStatus[button] = true;
+}
+
+void SoundButtons::disableButton(QPushButton *button)
+{
+    button->setStyleSheet("QPushButton:pressed { background-color: grey; }");
+    buttonStatus[button] = false;
 }
