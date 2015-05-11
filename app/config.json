@@ -34,7 +34,7 @@
     "targets": [
         {
             "name": "trompette",
-            "hosts": ["*"],
+            "hosts": ["frigo_d", "frigo_e", "frigo_f"],
             "volume": 100
         }
     ]
@@ -70,7 +70,7 @@
     ]
 },
 {
-    "name": "Course Poursuite",
+    "name": "Course\nPoursuite",
     "targets": [
         {
             "name": "course_poursuite",
