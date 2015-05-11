@@ -6,19 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>671</width>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0">
-    <widget class="SoundButtons" name="soundButtons" native="true"/>
-   </item>
    <item row="0" column="0">
     <widget class="QSlider" name="volumeSlider">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>150</height>
+      </size>
+     </property>
      <property name="maximum">
       <number>100</number>
      </property>
@@ -29,6 +32,9 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="SoundButtons" name="soundButtons" native="true"/>
    </item>
    <item row="1" column="0">
     <spacer name="verticalSpacer">
@@ -41,7 +47,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>50</height>
+       <height>100</height>
       </size>
      </property>
     </spacer>

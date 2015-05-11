@@ -44,10 +44,12 @@ QLayoutItem *AutoBalancedLayout::takeAt(int index)
 
 void AutoBalancedLayout::setGeometry(const QRect &rect)
 {
+    int fakeSpacing = 20;
+
     helper.setCount(items.size());
     helper.setWidth(rect.width() - 1);
     helper.setHeight(rect.height() - 1);
-    helper.setSpacing(spacing());
+    helper.setSpacing(fakeSpacing);
 
     int columns = helper.chooseCols();
     int rows = ceil((double) items.size() / (double) columns);
@@ -61,8 +63,8 @@ void AutoBalancedLayout::setGeometry(const QRect &rect)
 
             if (i < count()) {
                 items[i]->setGeometry(QRect(
-                    QPoint((size.width() + spacing()) * x, (size.height() + spacing()) * y),
-                    QPoint(size.width() * (x + 1) + spacing() * x, size.height() * (y + 1) + spacing() * y)
+                    QPoint((size.width() + fakeSpacing) * x, (size.height() + fakeSpacing) * y),
+                    QPoint(size.width() * (x + 1) + fakeSpacing * x, size.height() * (y + 1) + fakeSpacing * y)
                 ));
             }
         }
