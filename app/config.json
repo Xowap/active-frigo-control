@@ -36,6 +36,11 @@
             "name": "trompette",
             "hosts": ["frigo_d", "frigo_e", "frigo_f"],
             "volume": 100
+        },
+        {
+            "name": "silence",
+            "hosts": ["frigo_a", "frigo_b", "frigo_c"],
+            "volume": 100
         }
     ]
 },
@@ -45,6 +50,11 @@
         {
             "name": "bottes",
             "hosts": ["frigo_d", "frigo_e", "frigo_f"],
+            "volume": 100
+        },
+        {
+            "name": "silence",
+            "hosts": ["frigo_a", "frigo_b", "frigo_c"],
             "volume": 100
         }
     ]
