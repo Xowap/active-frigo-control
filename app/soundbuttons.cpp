@@ -84,6 +84,7 @@ void SoundButtons::playSet(SoundSet set)
 
         FrigoMessage *message = new FrigoMessage(content);
         message->to(target.getHosts());
+        message->setDelay(Config::instance()->getDelayMsec());
         message->deleteLater();
         packet.append(message);
     }
