@@ -14,7 +14,7 @@ SoundSetList Config::getSoundSets() const
 
 int Config::getDelayMsec() const
 {
-    return 150;
+    return 200;
 }
 
 void Config::load(const QString &filename)
