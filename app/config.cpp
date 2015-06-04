@@ -12,11 +12,6 @@ SoundSetList Config::getSoundSets() const
     return soundSets;
 }
 
-int Config::getDelayMsec() const
-{
-    return 200;
-}
-
 void Config::load(const QString &filename)
 {
     QFile f(filename);
@@ -60,12 +55,14 @@ void Config::load(const QString &filename)
 
             if (!objTarget["name"].isString()
                     || !objTarget["volume"].isDouble()
-                    || !objTarget["hosts"].isArray()) {
+                    || !objTarget["hosts"].isArray()
+                    || !objTarget["delay"].isDouble()) {
                 continue;
             }
 
             target.setName(objTarget["name"].toString());
             target.setVolume(objTarget["volume"].toDouble());
+            target.setDelay(objTarget["delay"].toDouble());
 
             foreach (QJsonValue host, objTarget["hosts"].toArray()) {
                 if (!host.isString()) {

@@ -80,11 +80,11 @@ void SoundButtons::playSet(SoundSet set)
         content["name"] = target.getName();
         content["volume"] = target.getVolume();
 
-        qDebug() << "playing sound" << content;
+        qDebug() << "playing sound" << content << "with delay" << target.getDelay();
 
         FrigoMessage *message = new FrigoMessage(content);
         message->to(target.getHosts());
-        message->setDelay(Config::instance()->getDelayMsec());
+        message->setDelay(target.getDelay());
         message->deleteLater();
         packet.append(message);
     }

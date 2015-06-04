@@ -20,7 +20,6 @@ public:
     }
 
     SoundSetList getSoundSets() const;
-    int getDelayMsec() const;
 
 public slots:
     void load(const QString &filename);
