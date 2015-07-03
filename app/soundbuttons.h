@@ -21,8 +21,6 @@ public:
     explicit SoundButtons(QWidget *parent = 0);
     ~SoundButtons();
 
-    virtual bool eventFilter(QObject *target, QEvent *event);
-
 private slots:
     void playSet(SoundSet set);
     void setVolume(int volume);

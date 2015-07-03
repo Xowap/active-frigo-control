@@ -8,28 +8,24 @@
 #include <QByteArray>
 #include <QPushButton>
 #include <QUuid>
-#include <QTapAndHoldGesture>
+#include <QTimer>
 
 #include "autobalancedlayout.h"
 
 SoundButtons::SoundButtons(QWidget *parent) :
     QWidget(parent),
-    tunnel(new FrigoTunnel(QUuid::createUuid().toString(), this)),
+    tunnel(new FrigoTunnel(QUuid::createUuid().toString(), QStringList() << "/dev/ttyUSB1" << "/dev/ttyUSB0", this)),
     layout(new AutoBalancedLayout(this)),
     volume(100)
 {
     Config *config = Config::instance();
     config->load(":/config/config.json");
 
-    QTapAndHoldGesture::setTimeout(LONG_PRESS_TIMEOUT);
-
     setLayout(layout);
 
     foreach(SoundSet set, config->getSoundSets()) {
         QPushButton *button = new QPushButton(set.getName(), this);
         button->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
-        button->grabGesture(Qt::TapAndHoldGesture);
-        button->installEventFilter(this);
         layout->addWidget(button);
 
         connect(button, &QPushButton::clicked, [=]() {
@@ -40,34 +36,31 @@ SoundButtons::SoundButtons(QWidget *parent) :
 
         connect(button, &QPushButton::pressed, [=]() {
             disableButton(button);
+
+            QTimer *timer = new QTimer();
+            timer->setSingleShot(true);
+
+            connect(timer, &QTimer::timeout, [=]() {
+                timer->deleteLater();
+
+                if (button->isDown()) {
+                    enableButton(button);
+                }
+            });
+
+            timer->start(LONG_PRESS_TIMEOUT);
         });
 
         disableButton(button);
     }
 
     volumeTimer.setInterval(5000);
-    connect(&volumeTimer, SIGNAL(timeout()), this, SLOT(sendVolume()));
+//    connect(&volumeTimer, SIGNAL(timeout()), this, SLOT(sendVolume()));
     volumeTimer.start();
 }
 
 SoundButtons::~SoundButtons()
 {
-}
-
-bool SoundButtons::eventFilter(QObject *target, QEvent *event)
-{
-    if (event->type() == QEvent::Gesture) {
-        QGestureEvent *gestureEvent = static_cast<QGestureEvent *>(event);
-        QPushButton *button = dynamic_cast<QPushButton *>(target);
-
-        if (gestureEvent->gesture(Qt::TapAndHoldGesture)
-                && button
-                && buttonStatus.contains(button)) {
-            enableButton(button);
-        }
-    }
-
-    return false;
 }
 
 void SoundButtons::playSet(SoundSet set)

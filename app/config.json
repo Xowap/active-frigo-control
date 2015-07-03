@@ -17,7 +17,7 @@
             "name": "ecoutez",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -28,7 +28,7 @@
             "name": "valses",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -37,13 +37,7 @@
     "targets": [
         {
             "name": "trompette",
-            "hosts": ["frigo_d", "frigo_e", "frigo_f"],
-            "volume": 100,
-            "delay": 200
-        },
-        {
-            "name": "silence",
-            "hosts": ["frigo_a", "frigo_b", "frigo_c"],
+            "hosts": ["*"],
             "volume": 100,
             "delay": -1
         }
@@ -54,13 +48,7 @@
     "targets": [
         {
             "name": "bottes",
-            "hosts": ["frigo_d", "frigo_e", "frigo_f"],
-            "volume": 100,
-            "delay": 200
-        },
-        {
-            "name": "silence",
-            "hosts": ["frigo_a", "frigo_b", "frigo_c"],
+            "hosts": ["*"],
             "volume": 100,
             "delay": -1
         }
@@ -73,7 +61,7 @@
             "name": "affrontement",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -84,7 +72,7 @@
             "name": "sommeil",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -95,7 +83,7 @@
             "name": "course_poursuite",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -106,7 +94,7 @@
             "name": "final",
             "hosts": ["*"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -117,7 +105,7 @@
             "name": "sommeil",
             "hosts": ["frigo_a"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -128,7 +116,7 @@
             "name": "sommeil",
             "hosts": ["frigo_b"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -139,7 +127,7 @@
             "name": "sommeil",
             "hosts": ["frigo_c"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -150,7 +138,7 @@
             "name": "sommeil",
             "hosts": ["frigo_d"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -161,7 +149,7 @@
             "name": "sommeil",
             "hosts": ["frigo_e"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 },
@@ -172,7 +160,7 @@
             "name": "sommeil",
             "hosts": ["frigo_f"],
             "volume": 100,
-            "delay": 200
+            "delay": -1
         }
     ]
 }
